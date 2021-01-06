@@ -1,0 +1,43 @@
+baseURL = "https://joellof.com/"
+publishDir = "docs"
+
+languageCode = "en-US"
+defaultContentLanguage = "en"
+title = "Joel Löf"
+theme = "hugo-theme-learn"
+themesdir = "themes"
+metaDataFormat = "yaml"
+
+[params]
+  author = "Joel Löf"
+  themeVariant = "mine"
+  editURL = ""
+
+  editButton                = false
+  useMenuTopPart            = true
+  useLogo                   = true
+  showVisitedLinks          = false          # If there should be a checkmark next to visited items in toc
+  showTopBar                = false
+  disableBreadcrumb         = false
+  disableToc                = true
+  disableNextPrev           = true             # left right arrows
+  disableMermaid            = true              # Markdown syntax for generating flowcharts
+  disableSearch             = true
+  disableLandingPageButton  = true    # The "Home"-button
+  displayFileTitleAsText    = false
+  IsMultiLingual            = false
+  DisableLanguageSwitchingButton = true
+
+  ordersectionsby = "weight"    # orders the tree by weigth or title
+  titleSeparator = "::"         # No tab naming scheme, eg Start :: Title
+  tocMenu = false # should prolly be a link
+
+  # tags
+  # custom_css
+  # disableInlineCopyToClipBoard = false
+  # DisableShortcutsTitle = false
+  # disableAssetsBusting
+  # .Site.Params.disableAssetsBusting
+  # .Site.Params.themeVariant
+  landingPageURL = "https://klotter.xyz/"
+  # landingPageName = "hello"

@@ -1,0 +1,125 @@
+<!-- <!DOCTYPE html> -->
+<html>
+<head>
+<style>
+  .button_skicka_forfrogan {
+    /*display: inline-block;*/
+    /*border: 4px solid;*/
+    border-radius: 0px;
+    /*background-color: rgba(115, 20, 255, 1.00);
+    border-color: rgba(115, 20, 255, 1.00);
+    outline-color: rgba(115, 20, 255, 1.00);
+    #2b0047 */
+
+    /*color: rgba(255, 0, 0, 1);*/
+    background-color: rgba(255, 255, 255, 1);
+    /*border-color:     rgba(43, 0, 71, 0.5);*/
+    /*outline-color:    rgba(43, 0, 71, 1.0);*/
+
+    border: 2px solid #2B0047;
+    /*border-width: 2px;*/
+    color: #2B0047; /*text color*/
+    text-align: center;
+    /*font-family: "noto sans";*/
+    font-family: "Raleway";
+    font-size: 17px;
+    font-weight: 520;
+    letter-spacing: 2px;
+    /*padding: 4px;*/
+    width: 222px;
+    height: 48px;
+    transition: all 0.2s;
+    cursor: pointer;
+    margin-top: 20px; /*Distance to text above*/
+  }
+
+  .button_skicka_forfrogan:hover {
+    background-color: #2B0047;
+    /*outline-color: #FFFFFF;*/
+    color: #ffffff;
+  }
+
+  .button_skicka_forfrogan:active {
+    background-color: #BB8DFF;
+    border-color: #BB8DFF;
+    outline-color: #BB8DFF;
+    transform: scale(0.98);
+
+  }
+</style>
+</head>
+<body>
+
+<a href="mailto:kenneth@klotter.xyz">
+  <button
+    class="button_skicka_forfrogan"
+    style="vertical-align:middle">
+    Skicka förfrågan
+  </button>
+</a>
+
+</body>
+</html>
+
+<!--
+
+<Button
+
+  pressedBackground={"#BB8DFF"}
+  text={"Skicka förfrågan"}
+  whileHoverScale={1}
+  whileTapScale={0.99}
+  {/* Using default values */}
+  alignment={"center"}
+  defaultTextColor={"#ffffff"}
+  disabled={false}
+  disabledBackground={"#f3f3f3"}
+  disabledTextColor={"#AAAAAA"}
+  onClick={undefined}
+  onMouseEnter={undefined}
+  onMouseLeave={undefined}
+  variant={"Default"}
+/> -->
+<!--
+// colorTransition
+type: "spring",
+delay: 0,
+stiffness: 500,
+damping: 60,
+mass: 1,
+
+// scaleTransition
+type: "spring",
+delay: 0,
+stiffness: 600,
+damping: 30,
+mass: 1, -->
+
+<!--
+
+
+.button_skicka_forfrogan span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button_skicka_forfrogan span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button_skicka_forfrogan:hover span {
+  background-color: #8914FF;
+  padding-right: 25px;
+}
+
+.button_skicka_forfrogan:hover span:after {
+  opacity: 1;
+  right: 0;
+} -->

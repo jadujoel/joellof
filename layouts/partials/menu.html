@@ -1,0 +1,121 @@
+<!--
+Deals with Menu items, Content Tree, Home-button, Checkmark on visited links
+
+-->
+
+<nav id="sidebar" class="{{if $.Site.Params.showVisitedLinks }}showVisitedLinks{{end}}">
+
+  {{ $currentNode := . }}
+  {{ $showvisitedlinks := .Site.Params.showVisitedLinks }}
+
+  <div id="header-wrapper">
+    {{ partial "logo.html" . }}
+  </div>
+
+    <!-- The tree with all the md files -->
+  <div class="highlightable">
+
+    <ul class="topics">
+      {{if eq .Site.Params.ordersectionsby "title"}}
+        {{range .Site.Home.Sections.ByTitle}}
+          {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks}}
+        {{end}}
+      {{else}}
+        {{range .Site.Home.Sections.ByWeight}}
+          {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks}}
+        {{end}}
+      {{end}}
+    </ul>
+
+    <!-- Footer item, edit in partials/menu-footer.html -->
+    <section id="footer"> {{ partial "menu-footer.html" . }} </section>
+  </div>
+</nav>
+
+<!-- templates -->
+{{ define "section-tree-nav" }}
+{{ $showvisitedlinks := .showvisitedlinks }}
+{{ $currentNode := .currentnode }}
+{{ $currentFileUniqueID := "" }}
+
+<!-- set file ID to the current file -->
+{{ with $currentNode.File }}
+  {{ $currentFileUniqueID = .UniqueID }}
+{{ end }}
+
+
+{{with .sect}}
+
+  <!-- if section is not hidden -->
+  {{if and .IsSection (or (not .Params.hidden) $.showhidden)}}
+
+    {{safeHTML .Params.head}}
+
+    <li
+    data-nav-id="{{.RelPermalink}}"
+    title="{{.Title}}"
+    class="dd-item
+        {{if .IsAncestor $currentNode }}parent{{end}}
+        {{if eq .File.UniqueID $currentFileUniqueID}}active{{end}}
+        {{if .Params.alwaysopen}}parent{{end}}
+        ">
+
+      <a href="{{.RelPermalink}}">
+          {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+          {{ if $showvisitedlinks}}
+            <i class="fas fa-check read-icon"></i>
+          {{ end }}
+      </a>
+
+      {{ $numberOfPages := (add (len .Pages) (len .Sections)) }}
+
+      <!-- If there are any pages pages -->
+      {{ if ne $numberOfPages 0 }}
+        <ul>
+          {{ $currentNode.Scratch.Set "pages" .Pages }}
+
+          {{ if .Sections}}
+            {{ $currentNode.Scratch.Set "pages" (.Pages | union .Sections) }}
+          {{end}}
+
+          {{ $pages := ($currentNode.Scratch.Get "pages") }}
+
+        <!-- Sort tree by title -->
+        {{if eq .Site.Params.ordersectionsby "title"}}
+
+          {{ range $pages.ByTitle }}
+
+            {{ if and .Params.hidden (not $.showhidden) }}
+            {{else}}
+              {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
+            {{end}}
+
+          {{ end }}
+
+        <!-- Sort tree by weigth -->
+        {{else}}
+          {{ range $pages.ByWeight }}
+            {{ if and .Params.hidden (not $.showhidden) }}
+            {{else}}
+              {{ template "section-tree-nav" dict "sect" . "currentnode" $currentNode "showvisitedlinks" $showvisitedlinks }}
+            {{end}}
+          {{ end }}
+        {{end}}
+        </ul>
+      {{ end }}
+
+    </li> <!-- nav id end -->
+
+  {{else}} <!-- if section is hidden -->
+
+    {{ if not .Params.Hidden }}
+      <li data-nav-id="{{.RelPermalink}}" title="{{.Title}}" class="dd-item {{if eq .File.UniqueID $currentFileUniqueID}}active{{end}}">
+        <a href="{{ .RelPermalink}}">
+        {{safeHTML .Params.Pre}}{{or .Params.menuTitle .LinkTitle .Title}}{{safeHTML .Params.Post}}
+
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+  {{ end }} <!-- if/else hidden -->
+{{ end }} <!-- with .sect -->

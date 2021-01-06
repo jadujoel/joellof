@@ -1,0 +1,65 @@
+Spec
+H1
+Font: Noto Serif TC (https://fonts.google.com/specimen/Noto+Serif+TC)
+Weight: Bold
+Size: 48pt
+Color: #000000
+
+Abril fatface
+
+https://fonts.google.com/specimen/Abril+Fatface
+
+
+H2
+Font: Noto Serif TC (https://fonts.google.com/specimen/Noto+Serif+TC)
+Weight: Bold
+Size: 24pt
+Color: #000000
+
+Body
+Font: Noto Serif TC (https://fonts.google.com/specimen/Noto+Serif+TC)
+Weight: Medium
+Size: 24pt
+Color: #48484F
+
+Raleway
+
+https://fonts.google.com/specimen/Raleway?query=raleway
+
+
+Menu items
+Font: Noto Serif TC (https://fonts.google.com/specimen/Noto+Serif+TC)
+Weight: Medium
+Size: 18pt
+Color default: #000000
+Color hover: #858587
+Color active: #7314FF
+
+Button Text
+Font: Noto Serif TC (https://fonts.google.com/specimen/Noto+Serif+TC)
+Weight: Bold
+Size: 18pt
+Color: #FFFFFF
+Character spacing: 2.29
+
+Button
+Default: #7314FF
+Hover: #8914FF
+Press: #BB8DFF
+
+Background
+Color: #FFFFFF
+
+new purple: 2b0047
+
+Om mig text
+
+Mitt namn är Kenneth Lööf och jag har en examen från Stockholms musikpedagogiska institut och har studerat arrangering vid Kungliga Musikhögskolan i Stockholm.
+
+Sedan 80-talet har jag arbetat som musiklärare inom kulturskolan. Där har jag undervisat i träblås, och drivit ensamblerr. Har även lett flertal orkestrar och varit dirigent för Uddevalla stadsmusikkår.
+
+Min skola, Tvärflöjt - första och andra spelboken, finns utgivna liksom Julvisor för flöjt. Ett flertal egna visor har också blivit publicerade.
+
+Arbetar nu med specialskriva arrangemang och musik för ensambler och orkestrar på alla nivåer. Stor erfarenhet av udda instrumentkombinationer och att ta fram det bästa från varje sektion och stämma.
+
+Jag kan även hjälpa till med renskrivning av handskrivna noter eller justera stämmor för en instrumentalist som behöver det lättare eller svårare.

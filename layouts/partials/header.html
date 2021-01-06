@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+
+<head>
+  <meta
+    charset="utf-8"
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0"
+  >
+
+  {{ hugo.Generator }}
+  {{ partial "meta.html" . }}
+  {{ partial "favicon.html" . }}
+
+  <title>{{ .Title }} {{ default "::" .Site.Params.titleSeparator }} {{ .Site.Title }}</title>
+
+  <!-- adds the three navigation button lines -->
+  <link href='{{"css/fontawesome-all.min.css" | relURL}}' rel="stylesheet">
+
+  <!-- Main theme -->
+  <link href='{{"css/theme.css" | relURL}}' rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Abril+Fatface" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+ <!--  https://fonts.google.com/specimen/Raleway?query=raleway -->
+
+  <!-- All these needed just for hiding showing scrollbar.... -->
+  <script src='{{"js/jquery-3.3.1.min.js"| relURL}}'></script>
+  <script src='{{"js/clipboard.min.js"| relURL}}'></script>
+  <script src='{{"js/featherlight.min.js"| relURL}}'></script>
+  <script src='{{"js/perfect-scrollbar.jquery.min.js"| relURL}}'></script>
+  <script src='{{"js/learn.js"| relURL}}'></script>
+
+
+</head>
+
+
+<!-- The main Formatting of the entire page -->
+<body class="" data-url="{{ .RelPermalink }}">
+
+  {{ partial "menu.html" . }}
+
+  <section id="body">
+    <div id="overlay"></div>
+
+    <!-- text start padding, navlinks -->
+    <div class="padding highlightable">
+
+    <!-- <div id="menutoggle"> -->
+      <span id="sidebar-toggle-span">
+        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+          <i class="fas fa-bars"></i>
+        </a>
+      </span>
+    <!-- </div> -->
+</body>
