@@ -9,9 +9,6 @@ done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 echo "$DIR"
 cd "$DIR"
-ls -la
-$SHELL
-
 hugo --cleanDestinationDir;
 hugo;
 git add .;
