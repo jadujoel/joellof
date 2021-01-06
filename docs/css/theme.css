@@ -1,0 +1,434 @@
+@charset "UTF-8";
+/* Collapsed sidebar: https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp */
+
+:root{ /* Custom Theme */
+
+    /*--fontHeader: "Abril Fatface";*/
+    --fontHeader: "Raleway";
+    --fontBody: "Raleway";
+    --fontSidebar: "Raleway";
+
+    --fontSizeSidebar: 16px;
+    --fontSizeH1: 48px;
+    --fontSizeH2: 28px;
+    --fontSizeBody: 14pt;
+
+    --fontWeightSidebar: 500;
+    --fontWeightH1: 400;
+    --fontWeightH2: 800;
+    --fontWeightBody: 100;
+
+    --fontColorH1:      #2B0047;
+    --fontColorH2:      #2B0047; /* Color of titles h2-h3-h4-h5 */
+    --fontColorBody:    #48484F; /* Color of text by default */
+
+    --fontColorSidebar:   #2B0047;  /* Color of links in menu  */
+    --fontColorSidebarActive:   #B000FF;  /* Color of links in menu */
+    --fontColorLinkHover: #858587;  /* Color of links in menu, when hovered */
+    --fontVisitedColor:   #030304; /* Color of 'page visited' */
+
+    --fontColorMainLink:      #B000FF; /* Color of links */
+    --fontColorMainLinkHover: #B000FF; /* Color of hovered links */
+
+    --backgroundColorMain:    #FFFFFFFF;
+    --backgroundColorSidebar: #FFFFFFFF; /* Background color of menu header */
+    --backgroundColorBody:    #FFFFFFFF; /* Background color of menu header */
+
+    /*--sidebarOverlayColor: 250, 250, 250, 0.30;*/
+    --sidebarOverlayColor: 193, 18, 246, 0.50; /* RGBA */
+
+    --sidebarWidth: 200px; /* Default: 230px */
+
+    /*#B000FF*/
+
+
+}
+
+html {
+    background: var(--backgroundColorMain);
+    background-color: var(--backgroundColorMain);
+    color: var(--backgroundColorMain);
+}
+
+
+
+
+/*
+While em is relative to the font-size of its direct or nearest parent,
+rem is only relative to the html (root) font-size.
+
+em = percent based on parent
+rem = percent based on root
+
+*/
+
+
+/********************** LINKS *************************************/
+a {
+    color: var(--fontColorMainLink);
+    text-decoration: none; /* Don't add underscores... */
+}
+a:hover { color: var(--fontColorMainLinkHover); }
+
+figure {
+    margin-block-start: 1.5em;
+    margin-block-end: 1.5em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+
+    /*width: 4px !important;*/
+    /*height: 4px !important;*/
+    /*scale: 0.1;*/
+}
+
+figure > img{
+  width:100%;
+  min-height:100%;
+}
+
+/*
+img {
+    max-width: 100%;
+    max-height: 100%;
+
+}
+
+#gallery {
+    width: 20%;
+    display: inline-flex;
+}
+*/
+
+/*
+div #gallery {
+    width: 1px;
+    height: 1px;
+    min-height: 1px;
+    display: inline-flex;
+}
+
+div #gallery > a {
+    width: 1px;
+    height: 1px;
+}
+*/
+/*
+div {
+    width: 1%;
+    min-height: 1%;
+}
+
+
+div #gallery a {
+    width: 1%;
+    height: 1%;
+    min-height: 1%;
+}
+
+#gallery a {
+    width: 10%;
+}
+
+a {
+    width: 10%;
+}
+
+*/
+/*
+
+#bild {
+    background-attachment: fixed;
+    background-color: #FB210DFF !important;
+    width: 1px !important;
+    padding: 400px !important;
+    padding: 400px !important;
+
+}
+*/
+/********************** BODY *************************************/
+#body {
+    margin-left: var(--sidebarWidth);
+    background-color: var(--backgroundColorBody);
+    color: var(--fontColorBody);
+    line-height: 1.5;
+
+    width: 30em; /*Controls main content width when full window 732px;*/
+
+}
+
+#body .padding {
+    padding: 12px;
+    background-color: var(--backgroundColorBody);
+
+    /*color: var(--fontColorBody);  Trying to make grey dissapear */
+
+
+}
+
+#body .padding .highlightable{
+    background-color: var(--backgroundColorBody);
+}
+
+/********************** SIDEBAR *************************************/
+
+/* Formats the sidebar, and makes it not take the top space */
+#sidebar {
+    background-color: var(--backgroundColorSidebar);
+    color: var(--fontColorSidebar); /* Trying to make grey dissapear */
+
+    width: var(--sidebarWidth);
+    font-size: 0px;     /* Makes sure no padding from top, doesnt affect menu items */
+    position: fixed;    /* keep sidebar in place when scrolling */
+    /*top: 54px;*/          /*distance from top of page - will mean where logo starts */
+    top: 3rem;          /*distance from top of page - will mean where logo starts */
+    height: 100%;
+
+    overflow-x: hidden; /*hide text if it's to long*/
+    overflow-y: hidden; /*create scroll if menu items dont fit in height*/
+    overflow: hidden; /*create scroll if menu items dont fit in height*/
+
+}
+
+/* The wrapper for the logo */
+#sidebar #header-wrapper {
+    background-color: var(--backgroundColorSidebar);
+    color: var(--fontColorSidebar); /* Trying to make grey dissapear */
+
+    display: block;
+    height: 8rem;
+}
+
+#logo {
+    background-color: var(--backgroundColorSidebar);
+    color: var(--backgroundColorSidebar); /* Trying to make grey dissapear */
+
+    /*display: inline;*/
+    /*width: 64px;*/
+    /*height: 64px;*/
+}
+
+/* Formats the content of the sidebar links = items + logo */
+#sidebar a {
+    background-color: var(--backgroundColorSidebar);
+    width: var(--sidebarWidth);
+    color: var(--fontColorSidebar);
+
+    font-family: var(--fontSidebar);
+    font-size:   var(--fontSizeSidebar);
+    font-weight: var(--fontWeightSidebar); /*500;*/
+    font-style: normal;
+
+    line-height: 2;
+    letter-spacing: 0px;
+    text-align: left;
+    /*margin-right: 64px;*/
+    padding-left: 32px; /* Pad all elements in sidebar */
+    /*padding: 64px;*/ /* Pad all elements in sidebar */
+    /*hello*/
+    /*width: 183px;*/
+    /*height: 32px;*/
+    /*overflow: hidden;*/ /*The overflow property specifies what should happen if content overflows an element's box.*/
+    overflow: hidden; /*The overflow property specifies what should happen if content overflows an element's box.*/
+    /*color: var(--fontColorSidebar);*/
+}
+
+#sidebar a:visited { color: var(--fontVisitedColor); }
+#sidebar a:hover { color: var(--fontColorLinkHover); }
+
+/* Unordered list*/
+#sidebar ul {
+    /*text-align: left;*/
+    list-style: none; /*Hides list-dots*/
+    padding: 0; /*Make sure menu items dont pad more than logo*/
+    margin: 0; /*Removes margin to logo above*/
+    overflow: hidden; /*scroll*/
+}
+
+/* Active Item */
+#sidebar ul li.active > a {
+    color: var(--fontColorSidebarActive);
+}
+
+/* Hides non-active topics subtopics */
+#sidebar ul.topics ul {
+    display: none;
+}
+
+/* Shows subtopic for active topic*/
+#sidebar ul.topics li.parent ul, #sidebar ul.topics > li.active ul {
+    display: block;
+    padding: 0; /* Dont indent subtopic so much */
+    text-indent: 1rem; /* Indent a little bit */
+}
+
+
+
+/* Sidebar toggle three-lines link */
+#sidebar-toggle-span {
+  display: none; /* Hides toggle span when sidebar active*/
+
+}
+
+/********************** RESIZING *************************************/
+
+/* WINDOW L */
+@media only all and (min-width: 60em) and (max-width: 80em) {
+    #body { width: 40rem; }
+}
+
+/* WINDOW M */
+@media only all and (min-width: 50em) and (max-width: 60em) {
+    #body { width: 30rem; }
+}
+
+
+/* WINDOW S */
+@media only all and (max-width: 50em) {
+    #body {
+        margin-left: 0px;
+        width: 100%;
+    }
+
+    /*Hides the sidebar */
+    #sidebar {
+        display: hidden;
+        left: -2048px;
+    }
+    .sidebar-hidden {
+        overflow: hidden;
+    }
+    .sidebar-hidden #sidebar {
+        left: 0;
+    }
+
+    .sidebar-hidden #body {
+        /*left: 0px;*/
+        margin-left: var(--sidebarWidth);
+        overflow: hidden;
+    }
+    .sidebar-hidden #overlay {
+        position: absolute;
+        width: 0px;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        z-index: 10;
+        background: rgba(var(--sidebarOverlayColor));
+        cursor: pointer;
+    }
+
+
+    /* makes sure the three lines are  displayed */
+    #sidebar-toggle-span {
+        display: block; /* if "inline" shows the grey sideline*/
+    }
+}
+
+/* /SIZES */
+
+
+/********************** ANIMATIONS *************************************/
+.default-animation,
+#header #logo-svg,
+#header #logo-svg path,
+#sidebar,
+#sidebar ul,
+#body,
+#body .padding,
+#body .nav {
+    -webkit-transition: all 0.001s ease;
+    -moz-transition: all 0.001s ease;
+    transition: all 0.001s ease;
+}
+
+/********************** MARKDOWN *************************************/
+
+/* Markdown Table */
+table {
+    border: 1px solid #ffffff;
+    table-layout: auto;
+}
+/* Table Header */
+th {
+    background: #ffffff;
+    padding: 0.5rem;
+}
+/* Table Body */
+td {
+    background: #ffffff;
+    padding: 0.5rem;
+    border: 1px solid #ffffff;
+}
+
+/* FONTS */
+h1 {
+    font-family: var(--fontHeader), serif;
+    font-size: var(--fontSizeH1);
+    font-weight: var(--fontWeightH1);
+    font-style: normal;
+
+    text-align: left;
+    text-transform: none;
+    /*letter-spacing: 0px;*/
+    line-height: 1;
+
+    color: var(--fontColorH1);
+}
+
+h2, h3, h4, h5, h6 {
+    font-family: var(--fontHeader);
+    font-size: var(--fontSizeH2);
+    font-weight: var(--fontWeightH2);
+    color: var(--fontColorH2);
+    line-height: 1.2;
+    text-align: left;
+    /*text-rendering: optimizeLegibility;*/
+    /*letter-spacing: -1px;*/
+}
+
+body {
+    font-family: var(--fontBody);
+    font-weight: var(--fontWeightBody);
+    font-size: var(--fontSizeBody);
+    color: var(--fontColorBody);
+    line-height: 1.6;
+}
+
+hr {
+    /*border-bottom: 4px solid #F0F2F4;*/
+    border-bottom: 4px solid #ffffff;
+}
+
+
+/* Code */
+code, kbd, pre, samp {
+    font-family: "Consolas", menlo, monospace;
+    font-size: 92%;
+}
+code {
+    border-radius: 2px;
+    white-space: nowrap;
+    color: #5e5e5e;
+    background: #FFF7DD;
+    border: 1px solid #fbf0cb;
+    padding: 0px 2px;
+}
+pre {
+    padding: 1rem;
+    margin: 2rem 0;
+    background: #282c34;
+    border: 0;
+    border-radius: 2px;
+    line-height: 1.15;
+}
+pre code {
+    color: #ffffff
+    background: inherit;
+    white-space: inherit;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
